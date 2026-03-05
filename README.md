@@ -1,5 +1,70 @@
 # Steam Review Analysis
 
+A simple data pipeline that collects, analyzes, and visualizes Steam review and game description data.
+
+---
+
+## Overview
+
+This project performs basic analysis on Steam game reviews, including:
+
+- Review data collection through web scraping
+- Sentiment classification using a machine learning model
+- Yearly sentiment trend analysis
+- Topic analysis of game descriptions
+
+---
+
+## Pipeline
+
+### 1. Review Collection
+- Scraped **Top Rated Steam reviews** using `requests` and `BeautifulSoup`
+- Stored collected data in `steam_reviews.csv`
+- Saved fields:
+  - Review date
+  - Review text
+  - Recommendation status
+  - Game title
+
+---
+
+### 2. Sentiment Classification
+- Text preprocessing:
+  - Lowercasing
+  - Removal of numbers, URLs, and emojis
+  - Tokenization using **spaCy**
+
+- Feature extraction:
+  - **Bag-of-Words (BOW)** word frequency vectorization
+
+- Model:
+  - **SGD classifier** for positive/negative prediction
+
+- Evaluation:
+  - Cross-validation
+  - Test accuracy and F1 score
+  - Extraction of **Top 20 positive keywords**
+
+---
+
+### 3. Yearly Sentiment Trends
+- Used **pandas** to compute yearly positive sentiment ratios
+- Visualizations include:
+  - Bar chart showing number of games with **≥80% positive reviews**
+  - Heatmap of sentiment trends by year
+
+---
+
+### 4. Game Description Topic Analysis
+- Collected game description snippets from **2021–2023**
+- Applied **LDA topic modeling** to extract keywords
+- Aggregated topic frequencies by year
+- Visualized topic changes using **clustered bar charts**
+
+---
+
+# Steam Review Analysis
+
 간단한 파이프라인으로 Steam 리뷰와 설명문 데이터를 수집·분석·시각화합니다.
 
 1. **리뷰 수집**  
